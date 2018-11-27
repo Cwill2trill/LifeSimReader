@@ -1,0 +1,56 @@
+
+<!--This webpage is going to form a random life based
+off the loops that will choose the different array elements-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Life Simulator</h1>
+<div></div>
+<p1> Chooose wisely between two choices to seal your fate</p1>
+
+
+
+<button onclick= "startGame()">Click To Start</button>
+
+<p id ="start"></p>
+
+<script>
+    function startGame() {
+        document.getElementById("start").innerHTML = "You are born";
+    }
+    
+    var earlyChildhood = ["You are a very popular toddler, making hella connections in preschool",
+    "You are a deep thinking loner, many great ideas cross your mind daily",
+    "You're one weird kid, hopefuly this is just a phase"];
+    var elemntarySchool = ["You seem to be genuinly smart and fully involved in school....nerd",
+    "You aren't the brightest 5th grader but you seem to be popular with the (insert your prefered sexual preference)",
+    "You're one boring ass 5th grader, nothing much going on here"];
+    var middleSchoolAge = ["You are maturing quicker than your peers, many of them have started smoking weed, and dirnking but you chooses to wait until your int highschool",
+    "Because your parents are so strict, you are forced to stay home and be a home body. The only upside is you have a 4.0gpa, but its middle school so who cares",
+    "You are among the popular kids finnaly and you are invited to the latest parties"];
+    var highSchoolAge = ["","",""];
+
+    (function($) {
+    $.rand = function(arg) {
+        if ($.isArray(arg)) {
+            return arg[$.rand(arg.length)];
+        } else if (typeof arg === "number") {
+            return Math.floor(Math.random() * arg);
+        } else {
+            return 4;  // chosen by fair dice roll
+        }
+    };
+})(jQuery);
+    
+    var earlyChildhood = jQuery.rand(earlyChildhood);
+    </script>
+<p id = "earlyChildhoodDisplay"></p>
+</body>
+<script>
+window.onload = function(){
+    var earlyChildhood;
+    var lengthOfChildhood = earlyChildhood.length;
+    document.getElementById('earlyChildhoodDisplay').innerHTML = earlyChildhood;
+};
+</script>
